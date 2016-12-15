@@ -1,3 +1,4 @@
+# Python 3.5.2
 # Ramon Llull's Thinking Machine Test
 # Creates a random entity with a random combination of
 # attributes from a given set.
@@ -18,22 +19,21 @@ colors = ["Black", "White", "Red", "Blue", "Green", "Yellow",
 def valid_argument(n):
     # TODO: Handle other edge cases as well.
     if (n < 0):
-        print "Illegal Argument: n < 0"
+        print ("Illegal Argument: n < 0")
         return False
     else: 
         return True
     
-def get_entity():
-    entity = entities[random.randrange(0, len(entities))]
-    return entity
+def random_item(a_list):
+    item = a_list[random.randrange(0, len(a_list))]
+    return item
 
 def combine(description, array):
     """Creates a two-word description from the given array."""
-    adverb = array[random.randrange(0, len(array))] + "ly"
-    adjective = array[random.randrange(0, len(array))]
+    adverb = random_item(array) + "ly"
+    adjective = random_item(array)
     description += adverb + " " + adjective
     return description
-
 
 # Main Method
 def describe(n, array):
@@ -47,7 +47,7 @@ def describe(n, array):
     # Describe.
     description = ""
     if (n == 0):
-        description = array[random.randrange(0, len(array))] + "."
+        description = random_item(array) + "."
     else:
         for i in range (0, n):
             description = combine(description, array)
@@ -61,21 +61,19 @@ def describe(n, array):
 # Test Method
 # Increase n in describe(n) for longer descriptions.
 def test():
-    print "Ramon Llull's Thinking Machine - Quick Prototype\n"
-    print "The disks revolved heavily, and this was their message:\n"
-    print "The " + get_entity() + " is", describe(0, attributes)
-    print ""
-    print "The " + get_entity() + " is", describe(1, attributes) 
-    print "The " + get_entity() + " is", describe(2, attributes)
-    print "The " + get_entity() + " is", describe(3, attributes)
-    print ""
-    print "The " + get_entity() + " is", describe(0, colors)
-    print ""
-    print "The " + get_entity() + " is", describe(1, colors) 
-    print "The " + get_entity() + " is", describe(2, colors)
-    print "The " + get_entity() + " is", describe(3, colors)
+    print ("Ramon Llull's Thinking Machine - Quick Prototype\n")
+    print ("The disks revolved heavily, and this was their message:\n")
+    print ("The " + random_item(entities) + " is", describe(0, attributes))
+    print ()
+    print ("The " + random_item(entities) + " is", describe(1, attributes)) 
+    print ("The " + random_item(entities) + " is", describe(2, attributes))
+    print ("The " + random_item(entities) + " is", describe(3, attributes))
+    print ()
+    print ("The " + random_item(entities) + " is", describe(0, colors))
+    print ()
+    print ("The " + random_item(entities) + " is", describe(1, colors)) 
+    print ("The " + random_item(entities) + " is", describe(2, colors))
+    print ("The " + random_item(entities) + " is", describe(3, colors))
         
 # Test
 test()
-
-
